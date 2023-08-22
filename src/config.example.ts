@@ -7,7 +7,10 @@ export const emotes = {
     output: ':outbox_tray:',
     loading: ':hourglass_flowing_sand:',
     warning: ':warning:',
-    info: ':information_source:'
+    info: ':information_source:',
+    utils: ':mag_right:',
+    fun: ':tada:',
+    admin: ':gear:'
 }
 export const colors = {
     success: '#4fd92a',
@@ -23,3 +26,4 @@ export const colors = {
 export const owners = [
     'Your ID'
 ];
+export const queueInterval = 1000;

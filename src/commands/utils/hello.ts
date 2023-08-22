@@ -1,7 +1,7 @@
 import Command from '../../struct/command';
 import Client from '../../struct/client';
-import {ChatInputCommandInteraction} from "discord.js";
-import {IGuild} from "../../struct/typings";
+import {ChatInputCommandInteraction} from 'discord.js';
+import {IGuild} from '../../struct/typings';
 
 export default class HelloCommand extends Command {
     public constructor(client: Client) {
@@ -12,7 +12,7 @@ export default class HelloCommand extends Command {
             usage: 'hello',
             ownerOnly: false,
             nsfw: false,
-            options: undefined,
+            options: [],
             defer: false
         });
     };

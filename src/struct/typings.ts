@@ -1,8 +1,8 @@
-import { APIApplicationCommandOption } from 'discord.js';
+import {APIApplicationCommandOption, ColorResolvable} from 'discord.js';
 import { Document } from 'mongoose';
 import Guild from '../models/guild';
 
-export type CommandOptions = APIApplicationCommandOption | undefined;
+export type CommandOptions = APIApplicationCommandOption[] | undefined[] | Array<any>;
 
 export interface IInfos {
     name: string;
@@ -31,4 +31,23 @@ export interface ISchemas {
 export type SlashSyncOptions = {
     guildId?: string;
     debug?: boolean;
+}
+
+export interface Colors {
+    main: ColorResolvable;
+    error: ColorResolvable;
+    success: ColorResolvable;
+    bug: ColorResolvable;
+    warning: ColorResolvable;
+    info: ColorResolvable;
+    loading: ColorResolvable;
+    debug: ColorResolvable;
+    secondary: ColorResolvable;
+}
+
+export interface Timing {
+    time: number;
+    name: string;
+    interval?: NodeJS.Timeout;
+    cb: () => Promise<void> | void;
 }

@@ -32,6 +32,10 @@ export default class Database {
         });
     };
 
+    public async disconnect(): Promise<void> {
+        await mongoose.disconnect();
+    };
+
     public async getGuild(id: Snowflake): Promise<IGuild> {
         const guild = await this.schemas.Guild.findOne({ id });
         if (guild) return guild;
