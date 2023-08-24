@@ -9,8 +9,6 @@ import Database from './database';
 import { Logger } from '@classycrafter/super-logger';
 import * as conf from '../config';
 import Ptero from './ptero';
-import { Timings } from './timings';
-import axios from 'axios';
 
 config();
 
@@ -28,7 +26,6 @@ export default class Bot extends Client {
     public database: Database = new Database(this);
     public config: typeof conf = conf;
     public ptero: Ptero = new Ptero(this);
-    public timings: Timings = new Timings(this);
 
     public constructor() {
         super({
@@ -37,17 +34,6 @@ export default class Bot extends Client {
                 GatewayIntentBits.GuildMembers,
             ]
         });
-
-        /*this.on('ready', async () => {
-            this.timings.add({
-                time: 1000 * 60 * 2,
-                name: 'github_update',
-                cb: async () => {
-
-                }
-            });
-        });*/
-        // Cancelled as no api wrapper supports typescript.
     };
 
     private async _init(): Promise<void> {
@@ -65,6 +51,11 @@ export default class Bot extends Client {
     public async stop(): Promise<void> {
         await this.destroy();
         await this.database.disconnect();
+    };
+
+    public resetProperties(): void {
+        this.commands = new Discord.Collection();
+        this.events = new Discord.Collection();
     };
 
     public async loadCommands(): Promise<void> {

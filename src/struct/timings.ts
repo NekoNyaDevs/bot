@@ -1,12 +1,13 @@
 import Client from './client';
 import { Timing } from './typings';
+import { QueueOptions } from './typings';
 
 export class Queue {
     public queue: Array<Function> = [];
-    public client: Client;
+    public interval: number;
 
-    public constructor(client: Client) {
-        this.client = client;
+    public constructor(opts: QueueOptions) {
+        this.interval = opts.interval;
     };
 
     public async add(callback: Function): Promise<void> {
@@ -16,7 +17,7 @@ export class Queue {
     public async run(): Promise<void> {
         for (const callback of this.queue) {
             await callback();
-            await new Promise(r => setTimeout(r, this.client.config.queueInterval));
+            await new Promise(r => setTimeout(r, this.interval));
         }
     };
 
@@ -61,7 +62,7 @@ export class Timings {
 
     public constructor(client: Client) {
         this.client = client;
-        this._queue = new Queue(client);
+        this._queue = new Queue({ interval: client.config.queueInterval });
     };
 
     public async add(timing: Timing): Promise<void> {

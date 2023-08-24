@@ -10,7 +10,20 @@ export const emotes = {
     info: ':information_source:',
     utils: ':mag_right:',
     fun: ':tada:',
-    admin: ':gear:'
+    admin: ':gear:',
+    owner: ':crown:',
+    music: ':musical_note:',
+    cat: ':cat:',
+    fox: ':fox:',
+    hug: ':hugging:',
+    kiss: ':kissing_heart:',
+    pat: ':handshake:',
+    slap: ':raised_hand_with_fingers_splayed:',
+    tickle: ':smirk_cat:',
+    cuddle: ':smiling_face_with_3_hearts:',
+    poke: ':point_right:',
+    feed: ':fork_and_knife:',
+    lewd: ':smirk:'
 }
 export const colors = {
     success: '#4fd92a',

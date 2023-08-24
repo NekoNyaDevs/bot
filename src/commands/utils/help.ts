@@ -1,6 +1,6 @@
 import Command from '../../struct/command';
 import Client from '../../struct/client';
-import {ChatInputCommandInteraction, ApplicationCommandOptionType, EmbedBuilder, ColorResolvable} from 'discord.js';
+import { ChatInputCommandInteraction, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import { IGuild } from '../../struct/typings';
 
 export default class HelpCommand extends Command {

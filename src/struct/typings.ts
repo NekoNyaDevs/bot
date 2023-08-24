@@ -51,3 +51,13 @@ export interface Timing {
     interval?: NodeJS.Timeout;
     cb: () => Promise<void> | void;
 }
+
+export interface QueueOptions {
+    interval: number;
+}
+
+export interface APIStatusAnswer {
+    status: number;
+    version: string;
+    statusString: string;
+}
