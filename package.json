@@ -1,0 +1,43 @@
+{
+  "name": "nekonyan",
+  "version": "0.0.1",
+  "description": "Official NekoNya Discord Bot",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npx tsc",
+    "start": "npx tsc && node lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NekoNyaDevs/bot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord.js",
+    "discord",
+    "nekonya",
+    "neko"
+  ],
+  "author": "TheDogHusky",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/NekoNyaDevs/bot/issues"
+  },
+  "homepage": "https://github.com/NekoNyaDevs/bot#readme",
+  "dependencies": {
+    "@classycrafter/super-logger": "^2.0.0",
+    "axios": "^1.4.0",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.4.3",
+    "ms": "^2.1.3",
+    "nekonya.js": "^1.1.7",
+    "pterodactyl.js": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^20.5.1",
+    "typescript": "^5.1.6"
+  }
+}
