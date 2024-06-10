@@ -12,7 +12,7 @@ export default class ReadyEvent extends Event {
     };
 
     public async run(client: Client): Promise<void> {
-        client.logger.info(`Logged in as ${client.user!.tag}`, 'Ready');
+        client.logger.info(`Logged in as ${client.user!.tag} (Ready and running)`, 'Ready');
         client.user!.setActivity(`/help`, { type: ActivityType.Playing });
         client.user!.setStatus('online');
 
