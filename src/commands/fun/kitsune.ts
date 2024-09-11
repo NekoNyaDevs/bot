@@ -7,7 +7,7 @@ import * as NekoNya from 'nekonya.js';
 export default class KitsuneCommand extends Command {
     constructor(client: Client) {
         super(client, {
-            name: 'neko',
+            name: 'kitsune',
             description: 'Get a random kitsune image',
             category: 'fun',
             usage: 'kitsune [number]',

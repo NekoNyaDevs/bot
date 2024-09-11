@@ -4,7 +4,7 @@ import { ChatInputCommandInteraction, ApplicationCommandOptionType, EmbedBuilder
 import { IGuild } from '../../struct/typings';
 import * as NekoNya from 'nekonya.js';
 
-export default class KitsuneCommand extends Command {
+export default class HugCommand extends Command {
     constructor(client: Client) {
         super(client, {
             name: 'hug',

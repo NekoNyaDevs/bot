@@ -4,7 +4,7 @@ import { ChatInputCommandInteraction, ApplicationCommandOptionType, EmbedBuilder
 import { IGuild } from '../../struct/typings';
 import * as NekoNya from 'nekonya.js';
 
-export default class NekoCommand extends Command {
+export default class LewdCommand extends Command {
     constructor(client: Client) {
         super(client, {
             name: 'lewd',
