@@ -60,4 +60,5 @@ export interface APIStatusAnswer {
     status: number;
     version: string;
     statusString: string;
+    latency: number;
 }

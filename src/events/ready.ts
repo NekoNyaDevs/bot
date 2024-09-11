@@ -1,7 +1,7 @@
 import Event from '../struct/event';
 import Client from '../struct/client';
 import { ActivityType } from 'discord.js';
-import { slashsync, wait } from '../struct/functions';
+import { wait } from '../struct/functions';
 
 export default class ReadyEvent extends Event {
     public constructor(client: Client) {
@@ -18,7 +18,7 @@ export default class ReadyEvent extends Event {
 
         await wait('3s');
 
-        await slashsync(client, { debug: client.config.debug });
+        await client.synchronizeCommands();
         return;
     };
 };

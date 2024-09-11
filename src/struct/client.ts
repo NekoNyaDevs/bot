@@ -9,6 +9,7 @@ import Database from './database';
 import { Logger } from '@classycrafter/super-logger';
 import * as conf from '../config';
 import Ptero from './ptero';
+import {getAPIStatus, wait} from './functions';
 
 config();
 
@@ -37,6 +38,13 @@ export default class Bot extends Client {
     };
 
     private async _init(): Promise<void> {
+        const results = await getAPIStatus("v1");
+        if (results.status !== 200) {
+            this.logger.fatal(`API is down!`, 'API');
+        } else {
+            this.logger.info(`API is up!`, 'API');
+        }
+
         await this.database.connect();
 
         await this.loadCommands();
@@ -44,6 +52,7 @@ export default class Bot extends Client {
     };
 
     public async start(): Promise<void> {
+        this.logger.info(`Starting ${process.env.npm_package_name} on ${process.env.NODE_ENV} mode...`, 'Startup');
         await this._init();
         await this.login(process.env.TOKEN);
     };
@@ -90,5 +99,21 @@ export default class Bot extends Client {
     makeReply(content: string, type: typeof this.config.emotes | string): string {
         // @ts-ignore
         return `${this.config.emotes[type]}・${content}`;
+    }
+
+    async synchronizeCommands(): Promise<void> {
+        const commands = this.commands.map((command) => command.getPostableData());
+        const devGuild = await this.guilds.fetch(this.config.devGuildId);
+        if (process.env.NODE_ENV === 'development') {
+            await this.application?.commands.set([]);
+            await devGuild.commands.set(commands);
+            return;
+        } else {
+            await devGuild.commands.set([]);
+        }
+        await this.application?.commands.set(commands);
+        await wait('5s'); // wait to ensure the commands are set
+        this.logger.info(`Commands have been synchronized!`, 'Commands');
+        return;
     }
 };

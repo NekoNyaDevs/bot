@@ -1,8 +1,7 @@
 import Command from '../../struct/command';
 import Client from '../../struct/client';
-import { ChatInputCommandInteraction, Collection } from 'discord.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 import { IGuild } from '../../struct/typings';
-import { slashsync } from '../../struct/functions';
 
 export default class RestartCommand extends Command {
     constructor(client: Client) {
@@ -29,7 +28,7 @@ export default class RestartCommand extends Command {
         await ctx.editReply({
             content: client.makeReply('Restarted, reloading commands...', 'success')
         });
-        await slashsync(client, { debug: client.config.debug });
+        await client.synchronizeCommands();
         console.log(client.commands.get('hello')?.run.toString())
         await ctx.editReply({
             content: client.makeReply('Reloaded commands, successfully restarted!', 'success')

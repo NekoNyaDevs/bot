@@ -2,7 +2,7 @@ import Command from '../../struct/command';
 import Client from '../../struct/client';
 import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 import { IGuild } from '../../struct/typings';
-import { version, latest } from 'nekonya.js';
+import { version } from 'nekonya.js';
 import { getAPIStatus, formatUptime } from '../../struct/functions';
 
 export default class InfosCommand extends Command {
@@ -32,13 +32,12 @@ export default class InfosCommand extends Command {
         const commands = client.commands.size;
         const uptime = formatUptime(client.uptime || 0);
         const apiVersion = version;
-        const apiLatest = latest;
         const apiStatus = (await getAPIStatus(apiVersion)).statusString;
 
         const embed = new EmbedBuilder()
             .setTitle(`${client.config.emotes.info}・Informations`)
             .setColor(client.config.colors.main)
-            .setDescription(`> Get some informations about the Bot!`)
+            .setDescription(`> Hey there! I'm NekoNyan, a cute Discord bot made by NekoNyaDevs for the NekoNya project.\n> Here are some informations about me:`)
             .setTimestamp()
             .setAuthor({ name: ctx.user.tag, iconURL: ctx.user.displayAvatarURL({ size: 1024, extension: 'webp' }) })
             .setFooter({ text: `Requested by ${ctx.user.tag}`, iconURL: client.user?.displayAvatarURL({ size: 1024, extension: 'webp' }) })
@@ -85,7 +84,7 @@ export default class InfosCommand extends Command {
                 },
                 {
                     name: `${client.config.emotes.api}・API`,
-                    value: `> **Status**: \`${apiStatus}\`\n> **Version**: \`${apiVersion}\`\n> **Latest**: \`${apiLatest}\``,
+                    value: `> **Status**: \`${apiStatus}\`\n> **Version**: \`${apiVersion}\`\n> **Latency**: \`${(await getAPIStatus(apiVersion)).latency}ms\``,
                     inline: true
                 }
             ]);

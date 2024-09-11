@@ -6,7 +6,9 @@ if (!existsSync('logs')) {
 }
 
 const client = new Client();
-client.start();
+client.start().catch((error) => {
+    client.logger.fatal(error.stack, 'Client');
+});
 
 if (process.env.NODE_ENV === 'development') {
     process.on('unhandledRejection', (reason, promise) => {
