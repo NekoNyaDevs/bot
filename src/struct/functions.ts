@@ -1,6 +1,4 @@
-import Client from './client';
-import * as Discord from 'discord.js';
-import { SlashSyncOptions, APIStatusAnswer } from './typings';
+import { APIStatusAnswer } from './typings';
 import ms from 'ms';
 import axios from 'axios';
 
