@@ -59,3 +59,4 @@ export const owners = [
     'Your ID here'
 ];
 export const queueInterval = 1000;
+export const devGuildId = 'Your ID here';
