@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "npx tsc && cross-env NODE_ENV=production node lib/index.js",
-    "dev": "cross-env NODE_ENV=development tsx watch src/index"
+    "dev": "npx tsc && cross-env NODE_ENV=development node lib/index"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,9 @@
     "@classycrafter/super-logger": "^2.0.0",
     "axios": "^1.7.7",
     "cross-env": "^7.0.3",
-    "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1",
-    "mongoose": "^7.4.3",
+    "discord.js": "^14.16.1",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.6.1",
     "ms": "^2.1.3",
     "nekonya.js": "^1.1.8",
     "pterodactyl.js": "^2.1.1",

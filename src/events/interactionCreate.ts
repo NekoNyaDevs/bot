@@ -1,6 +1,6 @@
 import Event from '../struct/event';
 import Client from '../struct/client';
-import { ChatInputCommandInteraction, ChannelType } from 'discord.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 
 export default class InteractionCreateEvent extends Event {
     public constructor(client: Client) {
@@ -12,11 +12,12 @@ export default class InteractionCreateEvent extends Event {
 
     public async run(client: Client, ctx: ChatInputCommandInteraction): Promise<void> {
         if (!ctx.isCommand()) return;
-        if (!ctx.guild) return;
+        if (!ctx.inGuild() || !ctx.guild) return;
+        if (!ctx.inCachedGuild()) return;
         if (!client.isReady()) return;
         if (!ctx.channel) return;
         if (!ctx.channel.isTextBased()) return;
-        if (ctx.channel.type === ChannelType.DM) return;
+        if (ctx.channel.isDMBased()) return;
 
         const data = await client.database.getGuild(ctx.guild.id);
         const command = client.commands.get(ctx.commandName);

@@ -23,7 +23,7 @@ export default class KitsuneCommand extends Command {
         });
     };
 
-    public async run(client: Client, ctx: ChatInputCommandInteraction, data: IGuild): Promise<void> {
+    public async run(client: Client, ctx: ChatInputCommandInteraction<"cached">, data: IGuild): Promise<void> {
         const user = ctx.options.getUser('user', true);
         if (user.id === ctx.user.id) {
             await ctx.reply({

@@ -9,7 +9,7 @@ import Database from './database';
 import { Logger } from '@classycrafter/super-logger';
 import * as conf from '../config';
 import Ptero from './ptero';
-import {getAPIStatus, wait} from './functions';
+import { getAPIStatus, wait } from './functions';
 
 config();
 

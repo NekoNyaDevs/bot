@@ -1,4 +1,4 @@
-import {APIApplicationCommandOption, ColorResolvable} from 'discord.js';
+import { APIApplicationCommandOption, ColorResolvable } from 'discord.js';
 import { Document } from 'mongoose';
 import Guild from '../models/guild';
 

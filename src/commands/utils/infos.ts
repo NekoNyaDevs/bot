@@ -19,10 +19,10 @@ export default class InfosCommand extends Command {
         });
     };
 
-    public async run(client: Client, ctx: ChatInputCommandInteraction, data: IGuild): Promise<void> {
+    public async run(client: Client, ctx: ChatInputCommandInteraction<"cached">, data: IGuild): Promise<void> {
         const name = client.user?.tag;
         const id = client.user?.id;
-        const owner = client.config.owners.map((owner) => {
+        const owners = client.config.owners.map((owner) => {
             const user = client.users.cache.get(owner);
             return user?.tag || 'An error occurred';
         }).join(', ');
@@ -53,8 +53,8 @@ export default class InfosCommand extends Command {
                     inline: true
                 },
                 {
-                    name: `${client.config.emotes.owner}・Owner`,
-                    value: `> \`${owner}\``,
+                    name: `${client.config.emotes.owner}・Owner(s)`,
+                    value: `> \`${owners}\``,
                     inline: true
                 },
                 {

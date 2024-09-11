@@ -17,7 +17,7 @@ export default class HelloCommand extends Command {
         });
     };
 
-    public async run(client: Client, ctx: ChatInputCommandInteraction, data: IGuild): Promise<void> {
+    public async run(client: Client, ctx: ChatInputCommandInteraction<"cached">, data: IGuild): Promise<void> {
         await ctx.reply({
             content: `Hello, ${ctx.user}!`
         });

@@ -1,4 +1,4 @@
-import { Client, ApplicationCommandType, ChatInputCommandInteraction, APIApplicationCommandOption } from 'discord.js';
+import { Client, ApplicationCommandType, ChatInputCommandInteraction } from 'discord.js';
 import { IInfos, IGuild, CommandOptions } from './typings';
 
 export default abstract class Command {
@@ -24,7 +24,7 @@ export default abstract class Command {
         this.defer = options.defer;
     };
 
-    public abstract run(client: Client, ctx: ChatInputCommandInteraction, data: IGuild): Promise<void>;
+    public abstract run(client: Client, ctx: ChatInputCommandInteraction<"cached">, data: IGuild): Promise<void>;
 
     public getPostableData(): any {
         return {
@@ -35,7 +35,7 @@ export default abstract class Command {
         };
     };
 
-    public async onError(ctx: ChatInputCommandInteraction, error: Error): Promise<void> {
+    public async onError(ctx: ChatInputCommandInteraction<"cached">, error: Error): Promise<void> {
         if (ctx.deferred || ctx.replied) {
             await ctx.editReply({
                 content: `An error occured while executing this command: \`${error.message}\``
