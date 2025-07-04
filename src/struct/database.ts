@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import Guild from '../models/guild';
-import { ISchemas, IGuild } from './typings';
+import { ISchemas, IGuild } from './types';
 import Client from './client';
 import { Snowflake } from 'discord.js';
 

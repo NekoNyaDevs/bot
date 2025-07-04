@@ -4,14 +4,12 @@ import Command from './command';
 import Event from './event';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { config } from 'dotenv';
 import Database from './database';
 import { Logger } from '@classycrafter/super-logger';
 import * as conf from '../config';
 import Ptero from './ptero';
 import { getAPIStatus, wait } from './functions';
 
-config();
 
 export default class Bot extends Client {
     public commands: Discord.Collection<string, Command> = new Discord.Collection();

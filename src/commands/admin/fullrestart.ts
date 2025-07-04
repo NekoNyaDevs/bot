@@ -1,7 +1,7 @@
 import Command from '../../struct/command';
 import Client from '../../struct/client';
 import { ChatInputCommandInteraction } from 'discord.js';
-import { IGuild } from '../../struct/typings';
+import { IGuild } from '../../struct/types';
 
 export default class FullRestartCommand extends Command {
     constructor(client: Client) {

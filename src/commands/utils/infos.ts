@@ -1,7 +1,7 @@
 import Command from '../../struct/command';
 import Client from '../../struct/client';
 import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
-import { IGuild } from '../../struct/typings';
+import { IGuild } from '../../struct/types';
 import { version } from 'nekonya.js';
 import { getAPIStatus, formatUptime } from '../../struct/functions';
 

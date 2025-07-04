@@ -28,11 +28,6 @@ export interface ISchemas {
     Guild: typeof Guild;
 }
 
-export type SlashSyncOptions = {
-    guildId?: string;
-    debug?: boolean;
-}
-
 export interface Colors {
     main: ColorResolvable;
     error: ColorResolvable;
@@ -43,17 +38,6 @@ export interface Colors {
     loading: ColorResolvable;
     debug: ColorResolvable;
     secondary: ColorResolvable;
-}
-
-export interface Timing {
-    time: number;
-    name: string;
-    interval?: NodeJS.Timeout;
-    cb: () => Promise<void> | void;
-}
-
-export interface QueueOptions {
-    interval: number;
 }
 
 export interface APIStatusAnswer {

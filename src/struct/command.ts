@@ -1,5 +1,5 @@
 import { Client, ApplicationCommandType, ChatInputCommandInteraction } from 'discord.js';
-import { IInfos, IGuild, CommandOptions } from './typings';
+import { IInfos, IGuild, CommandOptions } from './types';
 
 export default abstract class Command {
     public name: string;

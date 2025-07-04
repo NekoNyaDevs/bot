@@ -1,7 +1,7 @@
 import Command from '../../struct/command';
 import Client from '../../struct/client';
 import { ChatInputCommandInteraction, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
-import { IGuild } from '../../struct/typings';
+import { IGuild } from '../../struct/types';
 import * as NekoNya from 'nekonya.js';
 
 export default class LewdCommand extends Command {

@@ -1,5 +1,5 @@
 import Client from './client';
-import { IEventInfos } from './typings';
+import { IEventInfos } from './types';
 
 export default abstract class Event {
     public name: string;

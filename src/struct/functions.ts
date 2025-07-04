@@ -1,4 +1,4 @@
-import { APIStatusAnswer } from './typings';
+import { APIStatusAnswer } from './types';
 import ms from 'ms';
 import axios from 'axios';
 
