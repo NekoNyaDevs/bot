@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function wait(time: number | string): Promise<void> {
     return new Promise((resolve) => {
-        setTimeout(resolve, typeof time === 'string' ? ms(time) : time);
+        setTimeout(resolve, typeof time === 'string' ? ms(time as ms.StringValue) : time);
     });
 }
 
