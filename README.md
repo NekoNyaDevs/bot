@@ -4,6 +4,8 @@
 
 It simply includes commands from the API endpoints of NekoNya.
 
+## 🔨・Installation
+
 ## 🌳・Contributing
 
 If you want to contribute to this project, you can fork this repository and submit a pull request.
