@@ -21,6 +21,6 @@ export default class FullRestartCommand extends Command {
         await ctx.reply({
             content: client.makeReply('Restarting... See ya!', 'loading'),
         });
-        await client.ptero.restartNeko();
+        process.exit(0);
     };
 };

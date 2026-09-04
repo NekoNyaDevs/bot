@@ -7,9 +7,8 @@ import { join } from 'path';
 import Database from './database';
 import { Logger } from '@classycrafter/super-logger';
 import * as conf from '../config';
-import Ptero from './ptero';
 import { getAPIStatus, wait } from './functions';
-
+import { root } from "./utils";
 
 export default class Bot extends Client {
     public commands: Discord.Collection<string, Command> = new Discord.Collection();
@@ -18,13 +17,12 @@ export default class Bot extends Client {
         name: 'Nekonyan',
         writelogs: true,
         colored: true,
-        dirpath: join(__dirname, '..', '..', 'logs'),
+        dirpath: join(root, '..', 'logs'),
         tzformat: 24,
         timezone: 'Europe/Paris'
     });
     public database: Database = new Database(this);
     public config: typeof conf = conf;
-    public ptero: Ptero = new Ptero(this);
 
     public constructor() {
         super({
@@ -66,7 +64,7 @@ export default class Bot extends Client {
     };
 
     public async loadCommands(): Promise<void> {
-        const commandPath = join(__dirname, '..', 'commands');
+        const commandPath = join(root, 'commands');
 
         for (const dir of readdirSync(commandPath)) {
             const commands = readdirSync(`${commandPath}/${dir}`).filter((file) => file.endsWith('.ts') || file.endsWith('.js'));
@@ -81,7 +79,7 @@ export default class Bot extends Client {
     }
 
     public async loadEvents(): Promise<void> {
-        const eventPath = join(__dirname, '..', 'events');
+        const eventPath = join(root, 'events');
         const events = readdirSync(`${eventPath}`).filter((file) => file.endsWith('.ts') || file.endsWith('.js'));
 
         for (const file of events) {
