@@ -19,8 +19,7 @@ export default class StopCommand extends Command {
 
     public async run(client: Client, ctx: ChatInputCommandInteraction<"cached">, data: IGuild): Promise<void> {
         await ctx.reply({
-            content: client.makeReply('Stopping... Goodbye!', 'loading'),
+            content: client.makeReply('Not yet implemented', 'error'),
         });
-        await client.ptero.stopNeko();
     };
 };
